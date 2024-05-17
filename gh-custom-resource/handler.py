@@ -55,7 +55,7 @@ def update(event, context):
     # If the repo has changed, we need to delete the old webhook and create a new one, 
     # plus update the PhysicalResourceId
     if repo != old_repo:
-        delete_url = WEBHOOK_URL_ID.format(repo=repo, webhook_id=webhook_id)
+        delete_url = WEBHOOK_URL_ID.format(repo=old_repo, webhook_id=webhook_id)
         resp = requests.delete(delete_url, headers=HEADERS)
         resp.raise_for_status()
 
